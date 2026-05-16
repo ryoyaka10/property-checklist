@@ -24,10 +24,14 @@ const checklistData: TabData[] = [
         id: 't0-s1',
         title: '地盤・災害リスク',
         items: [
-          { id: 't0-s1-0', label: '本郷台地・武蔵野台地の上に位置するか', note: '「東京都 地盤情報」または「地盤サポートマップ」で住所検索', badge: 'must' },
-          { id: 't0-s1-1', label: '洪水・浸水ハザードマップでリスクなしか', note: '「重ねるハザードマップ（国土交通省）」で確認', badge: 'must' },
-          { id: 't0-s1-2', label: '液状化リスクが低いエリアか', note: '東京都の液状化予測図で確認。川沿い・埋立地はNG', badge: 'must' },
-          { id: 't0-s1-3', label: '周辺に木造密集地帯・細い路地がないか', note: 'Googleマップ航空写真で確認。延焼リスクを判断', badge: 'must' },
+          { id: 't0-s1-0', label: '本郷台地・武蔵野台地の上に位置するか', note: '「東京都 地盤情報」または「地盤サポートマップ」で住所検索', badge: 'must',
+            searchLink: { keyword: '地盤' } },
+          { id: 't0-s1-1', label: '洪水・浸水ハザードマップでリスクなしか', note: '「重ねるハザードマップ（国土交通省）」で確認', badge: 'must',
+            searchLink: { keyword: 'ハザードマップ' } },
+          { id: 't0-s1-2', label: '液状化リスクが低いエリアか', note: '東京都の液状化予測図で確認。川沿い・埋立地はNG', badge: 'must',
+            searchLink: { keyword: '液状化' } },
+          { id: 't0-s1-3', label: '周辺に木造密集地帯・細い路地がないか', note: 'Googleマップ航空写真で確認。延焼リスクを判断', badge: 'must',
+            searchLink: { keyword: '木造密集地帯' } },
         ],
       },
       {

@@ -9,12 +9,17 @@ export interface MapLinkConfig {
   searchQuery?: string;  // 設定時はsearchモードで開く
 }
 
+export interface SearchLinkConfig {
+  keyword: string;
+}
+
 export interface CheckItemData {
   id: string;
   label: string;
   note?: string;
   badge: BadgeType;
   mapLink?: MapLinkConfig;
+  searchLink?: SearchLinkConfig;
 }
 
 export interface CheckSectionData {

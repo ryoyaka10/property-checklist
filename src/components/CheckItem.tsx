@@ -2,6 +2,10 @@ import type { CheckItemData } from '../types';
 import Badge from './Badge';
 import { buildMapsUrl } from '../utils/mapUrl';
 
+function buildSearchUrl(address: string, keyword: string): string {
+  return `https://www.google.com/search?q=${encodeURIComponent(address + ' ' + keyword)}`;
+}
+
 interface Props {
   item: CheckItemData;
   checked: boolean;
@@ -61,6 +65,31 @@ export default function CheckItem({ item, checked, onToggle, propertyAddress }: 
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
                 住所を入力すると地図で確認できます
+              </span>
+            )}
+          </div>
+        )}
+        {item.searchLink && (
+          <div className="mt-1">
+            {propertyAddress ? (
+              <a
+                href={buildSearchUrl(propertyAddress, item.searchLink.keyword)}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={e => e.stopPropagation()}
+                className="inline-flex items-center gap-1 text-xs font-medium text-green-700 hover:text-green-900 hover:underline"
+              >
+                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
+                </svg>
+                「{propertyAddress} {item.searchLink.keyword}」を検索
+              </a>
+            ) : (
+              <span className="inline-flex items-center gap-1 text-xs text-gray-300">
+                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
+                </svg>
+                住所を入力すると検索できます
               </span>
             )}
           </div>
