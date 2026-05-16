@@ -6,9 +6,10 @@ interface Props {
   tab: TabData;
   checkedIds: Set<string>;
   onToggle: (id: string) => void;
+  propertyAddress: string;
 }
 
-export default function TabPanel({ tab, checkedIds, onToggle }: Props) {
+export default function TabPanel({ tab, checkedIds, onToggle, propertyAddress }: Props) {
   return (
     <div>
       <div className="mb-4">
@@ -20,6 +21,7 @@ export default function TabPanel({ tab, checkedIds, onToggle }: Props) {
           section={section}
           checkedIds={checkedIds}
           onToggle={onToggle}
+          propertyAddress={propertyAddress}
         />
       ))}
     </div>

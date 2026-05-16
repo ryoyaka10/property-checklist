@@ -10,10 +10,14 @@ const checklistData: TabData[] = [
         id: 't0-s0',
         title: '通勤・立地',
         items: [
-          { id: 't0-s0-0', label: '春日駅・後楽園駅から徒歩10分以内か', note: 'Googleマップで住所検索 → 徒歩ルート確認', badge: 'must' },
-          { id: 't0-s0-1', label: '九段下駅まで電車で20分以内か', note: '三田線：春日→神保町→九段下 約8分が理想', badge: 'must' },
-          { id: 't0-s0-2', label: '自転車でも職場まで20〜25分以内か', note: '寝坊・電車遅延時の保険。坂の有無も確認', badge: 'good' },
-          { id: 't0-s0-3', label: '徒歩圏内にスーパー or コンビニがあるか', note: 'Googleマップで「スーパー」検索して確認', badge: 'good' },
+          { id: 't0-s0-0', label: '春日駅・後楽園駅から徒歩10分以内か', note: 'Googleマップで住所検索 → 徒歩ルート確認', badge: 'must',
+            mapLink: { origin: '春日駅,東京', destination: 'PROPERTY', mode: 'walking' } },
+          { id: 't0-s0-1', label: '九段下駅まで電車で20分以内か', note: '三田線：春日→神保町→九段下 約8分が理想', badge: 'must',
+            mapLink: { origin: '東京堂千代田ビル,神田神保町,千代田区,東京都', destination: 'PROPERTY', mode: 'transit' } },
+          { id: 't0-s0-2', label: '自転車でも職場まで20〜25分以内か', note: '寝坊・電車遅延時の保険。坂の有無も確認', badge: 'good',
+            mapLink: { origin: '東京堂千代田ビル,神田神保町,千代田区,東京都', destination: 'PROPERTY', mode: 'bicycling' } },
+          { id: 't0-s0-3', label: '徒歩圏内にスーパー or コンビニがあるか', note: 'Googleマップで「スーパー」検索して確認', badge: 'good',
+            mapLink: { searchQuery: 'スーパー コンビニ' } },
         ],
       },
       {

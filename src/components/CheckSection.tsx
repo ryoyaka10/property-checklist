@@ -6,9 +6,10 @@ interface Props {
   section: CheckSectionData;
   checkedIds: Set<string>;
   onToggle: (id: string) => void;
+  propertyAddress: string;
 }
 
-export default function CheckSection({ section, checkedIds, onToggle }: Props) {
+export default function CheckSection({ section, checkedIds, onToggle, propertyAddress }: Props) {
   const doneCount = section.items.filter(item => checkedIds.has(item.id)).length;
   const total = section.items.length;
 
@@ -30,6 +31,7 @@ export default function CheckSection({ section, checkedIds, onToggle }: Props) {
             item={item}
             checked={checkedIds.has(item.id)}
             onToggle={onToggle}
+            propertyAddress={propertyAddress}
           />
         ))}
       </ul>

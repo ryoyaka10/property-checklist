@@ -6,6 +6,7 @@ import TabPanel from './components/TabPanel';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState(0);
+  const [propertyAddress, setPropertyAddress] = useState('');
   const { checkedIds, toggle, reset, totalCount, doneCount } = useChecklist();
 
   return (
@@ -13,6 +14,26 @@ export default function App() {
       <header className="bg-white shadow-sm sticky top-0 z-10">
         <div className="max-w-2xl mx-auto px-4 pt-4 pb-0">
           <h1 className="text-xl font-bold text-gray-900 mb-3">物件チェックシート</h1>
+
+          {/* 物件住所入力 */}
+          <div className="mb-3 bg-blue-50 border border-blue-100 rounded-xl px-3 py-2">
+            <label className="text-xs font-medium text-blue-700 block mb-1">
+              物件の住所・地域名
+            </label>
+            <input
+              type="text"
+              value={propertyAddress}
+              onChange={e => setPropertyAddress(e.target.value)}
+              placeholder="例：東京都文京区本郷3丁目"
+              className="w-full text-sm border border-blue-200 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white"
+            />
+            {propertyAddress && (
+              <p className="mt-1 text-xs text-blue-500">
+                通勤・立地の各項目に「Googleマップで確認」ボタンが表示されます
+              </p>
+            )}
+          </div>
+
           <ProgressBar done={doneCount} total={totalCount} onReset={reset} />
           <nav className="flex gap-1 mt-3">
             {checklistData.map((tab, index) => (
@@ -37,6 +58,7 @@ export default function App() {
           tab={checklistData[activeTab]}
           checkedIds={checkedIds}
           onToggle={toggle}
+          propertyAddress={propertyAddress}
         />
       </main>
     </div>
